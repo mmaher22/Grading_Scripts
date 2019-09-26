@@ -1,0 +1,32 @@
+{
+ "HW_NO":6,
+ "student_ids":"C://Users//s-moh//2-ML Teaching//Grading_Scripts//student_ids.txt", 
+ "HW_Path":"C://Users//s-moh//2-ML Teaching//SampleHWs//MTAT.03.227_6", 
+ "Rerun":0,
+ "Tasks": [
+	  {
+	   "Task_NO": "1.a-g",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"Task 1: Evaluation measures",
+	   "Task_End_Flag":"**(h)** Tune the SVM-RBF learner by trying out 20-100 different"
+	  },
+	  {
+	   "Task_NO": "1.h-o",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"**(h)** Tune the SVM-RBF learner by trying out 20-100 different",
+	   "Task_End_Flag":"**(p)** Finally, draw the ROC curves for the scoring classifiers and add the thresholded"
+	  },
+	  {
+	   "Task_NO": "1.p",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"**(p)** Finally, draw the ROC curves for the scoring classifiers and add the thresholded",
+	   "Task_End_Flag":"Task 2: Logistic regression"
+	  },
+	  {
+	   "Task_NO": "2",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"Task 2: Logistic regression",
+	   "Task_End_Flag":"How long did it take you to solve the homework"
+	  }
+  ]
+}

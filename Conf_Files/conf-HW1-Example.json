@@ -1,0 +1,170 @@
+{
+ "HW_NO":1,
+ "student_ids":"student_ids.txt", 
+ "HW_Path":"C://Users//s-moh//2-ML Teaching//Grading_HWs//HW1", 
+ "Rerun":1,
+ "Tasks": [
+	  {
+	   "Task_NO": "1.a",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"Check the [documentation](https:",
+	   "Task_End_Flag":"(b) Plot your data in axes"
+	  },
+	  {
+	   "Task_NO": "1.b",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"(b) Plot your data in axes",
+	   "Task_End_Flag":"(c) Find and highlight in the plot the"
+	  },
+	  {
+	   "Task_NO": "1.c",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"(c) Find and highlight in the plot the",
+	   "Task_End_Flag":"(d) Find (or guess) the equation of the decision boundary"
+	  },
+	  {
+	   "Task_NO": "1.d",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"(d) Find (or guess) the equation of the decision boundary",
+	   "Task_End_Flag":"(e) Plot the data together with the decision boundary"
+	  },
+	  {
+	   "Task_NO": "1.e",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"(e) Plot the data together with the decision boundary",
+	   "Task_End_Flag":"(f) Are there any misclassified instances? If"
+	  },
+	  {
+	   "Task_NO": "1.f",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"(f) Are there any misclassified instances? If",
+	   "Task_End_Flag":"(g) Are the classes linearly separable in the training"
+	  },
+	  {
+	   "Task_NO": "1.g",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"(g) Are the classes linearly separable in the training",
+	   "Task_End_Flag":"(h) Did you get help in this task from public"
+	  },
+	  {
+	   "Task_NO": "1.h",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"(h) Did you get help in this task from public",
+	   "Task_End_Flag":"Task 2. Perceptron"
+	  },
+	  {
+	   "Task_NO": "2.a",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"(a) Implement the perceptron algorithm",
+	   "Task_End_Flag":"(b) Did you get help from public"
+	  },
+	  {
+	   "Task_NO": "2.b",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"(b) Did you get help from public",
+	   "Task_End_Flag":"Task 3. Probability theor"
+	  },
+	  {
+	   "Task_NO": "3.a",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"(a) Given the data above, find ",
+	   "Task_End_Flag":"(b) If we evaluate 2 independently selected random"
+	  },
+	  {
+	   "Task_NO": "3.b",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"(b) If we evaluate 2 independently selected random",
+	   "Task_End_Flag":"(c) Find the probability that a randomly selected car"
+	  },
+	  {
+	   "Task_NO": "3.c",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"(c) Find the probability that a randomly selected car",
+	   "Task_End_Flag":"(d) What is the probability of a randomly selected car to be evaluated"
+	  },
+	  {
+	   "Task_NO": "3.d",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"(d) What is the probability of a randomly selected car to be evaluated",
+	   "Task_End_Flag":"(e) Are the events"
+	  },
+	  {
+	   "Task_NO": "3.e",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"(e) Are the events",
+	   "Task_End_Flag":"(f) Express the following probability"
+	  },
+	  {
+	   "Task_NO": "3.f",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"(f) Express the following probability",
+	   "Task_End_Flag":"Task 4. Naive"
+	  },
+	  {
+	   "Task_NO": "4.a",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"(a) Use the train_test_split method",
+	   "Task_End_Flag":"(b) Now implement your own Naive Bayes method."
+	  },
+	  {
+	   "Task_NO": "4.b",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"(b) Now implement your own Naive Bayes method.",
+	   "Task_End_Flag":"(c) Call out your method and calculate"
+	  },
+	  {
+	   "Task_NO": "4.c",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"(c) Call out your method and calculate",
+	   "Task_End_Flag":"(d) Use `BernoulliNB` of `sklearn` and calculate"
+	  },
+	  {
+	   "Task_NO": "4.d",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"(d) Use `BernoulliNB` of `sklearn` and calculate",
+	   "Task_End_Flag":"(e) Accuracies achieved by your implementation and"
+	  },
+	  {
+	   "Task_NO": "4.e",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"(e) Accuracies achieved by your implementation and",
+	   "Task_End_Flag":"Task 5. Comparison"
+	  },
+	  {
+	   "Task_NO": "5.a",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"Study the behaviour and accuracy of KNN across different",
+	   "Task_End_Flag":"(b) On which of the datasets round_overlap, round_separable"
+	  },
+	  {
+	   "Task_NO": "5.b",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"(b) On which of the datasets round_overlap, round_separable",
+	   "Task_End_Flag":"(c) What are the best-performing values of K for"
+	  },
+	  {
+	   "Task_NO": "5.c",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"(c) What are the best-performing values of K for",
+	   "Task_End_Flag":"(d) How does KNN performance change when"
+	  },
+	  {
+	   "Task_NO": "5.d",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"(d) How does KNN performance change when",
+	   "Task_End_Flag":"### Comparison of many methods"
+	  },
+	  {
+	   "Task_NO": "5.e",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"Study the performance of various methods and come up with ",
+	   "Task_End_Flag":"(f) Compare the performance of Naive Bayes"
+	  },
+	  {
+	   "Task_NO": "5.f",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"(f) Compare the performance of Naive Bayes",
+	   "Task_End_Flag":"This was the last task!"
+	  }
+  ]
+}
