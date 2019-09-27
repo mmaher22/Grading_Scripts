@@ -14,7 +14,7 @@ from pathlib import Path
 ############ Filtering Submissions to keep most recent one only #################            
 def filter_submissions(path, rerun_flag):
     submissions = list(sorted(path.glob('*.ipynb')))
-    print(submissions)
+    #print(submissions)
     final_submissions = []
     ids = []
     for s in range(len(submissions)-1, -1, -1):
