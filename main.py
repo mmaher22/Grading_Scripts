@@ -58,13 +58,22 @@ opt = int(input("Enter:\n 1 to Collect Solutions of each task in a separate note
 ############ BEGIN: Collect Solutions of a specific task #################
 if opt == 1:
     # Filter Submission to keep most recent only
-    filtered_submissions = filter_submissions(path, rerun_flag)
-    for task in hwTasks:
-        task.create_task_ipynb()
-        print(task.task_dir)
-        for sol in filtered_submissions:
-            solution = sol.find_task(task.task_no, task.task_grade, task.begin_flag, task.end_flag)
-            task.append_solution(solution)
+    print('Filtering Submissions.Please Wait...')
+    try:
+        filtered_submissions = filter_submissions(path, rerun_flag)
+    except Exception as e:
+        print("Error 1.1: An exception occured during running notebooks ", e)
+        
+    print('Creating Tasks Notebooks. Please Wait...')
+    try:
+        for task in hwTasks:
+            task.create_task_ipynb()
+            print(task.task_dir)
+            for sol in filtered_submissions:
+                solution = sol.find_task(task.task_no, task.task_grade, task.begin_flag, task.end_flag)
+                task.append_solution(solution)
+    except Exception as e:
+        print("Error 1.2: An exception occured during creating tasks notebooks ", e)
 ############ END: Collect Solutions of a specific task #################
     
     
