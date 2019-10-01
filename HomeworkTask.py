@@ -43,7 +43,7 @@ class HomeworkTask: #Class for the Homework Task or Subtask
         with open(self.task_dir, 'r', encoding="utf8") as f:
             data = json.load(f)['cells']
             for cell in data:
-                if '# StudentID:' in cell['source'][0]:
+                if len(cell['source']) != 0 and '# StudentID:' in cell['source'][0]:
                     student_id = cell['source'][0].split(':')[1][:-1] #Parse Student ID
                     commentFlag = False #flag the beginning of the comments
                     for row in cell['source']:
