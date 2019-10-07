@@ -165,6 +165,11 @@
             "Grade": 1,
             "Task_Begin_Flag": "(f) Compare the performance of Naive Bayes",
             "Task_End_Flag": "This was the last task!"
+        },
+        {
+         "Task_NO": "Timing",
+         "Task_Begin_Flag":"How long did it take you to solve the homework?",
+         "Task_End_Flag":"THANK YOU FOR YOUR EFFORT!"
         }
     ]
 }

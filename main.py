@@ -51,10 +51,12 @@ except Exception as e:
 # Initialize Information for each task
 hwTasks = []
 for task in data['Tasks']:
+    if task['Task_NO'] == "Timing":
+        continue
     hwTasks.append(HomeworkTask(hw_no, task['Task_NO'], task['Grade'], task['Task_Begin_Flag'], task['Task_End_Flag']))
 #### END: READ CONFIGURATION #########
 
-opt = int(input("Enter:\n 1 to Collect Solutions of each task in a separate notebook\n 2 to Collect Grades to an excel sheet:\n"))
+opt = int(input("Enter:\n 1 to Collect Solutions of each task in a separate notebook\n 2 to Collect Grades to an excel sheet\n 3 to collect timings:\n"))
 ############ BEGIN: Collect Solutions of a specific task #################
 if opt == 1:
     # Filter Submission to keep most recent only
@@ -133,8 +135,107 @@ if opt == 2:
 ############ BEGIN: Calculate AVG Time #################
 if opt == 3:
     #Read Student IDs from the grades excel sheet
+    import re
+    # try:
+    task_beg = None
+    task_end = None
+    for task in data['Tasks']:
+        if task['Task_NO'] == "Timing":
+            task_beg, task_end = task['Task_Begin_Flag'], task['Task_End_Flag']
+    # print("This feature will be added later.")
+    print(task_beg)
+    print(task_end)
+    print(path)
+    print('Filtering Submissions.Please Wait...')
+    filtered_submissions = filter_submissions(path, rerun_flag)
+    p1 = re.compile("Task \w+|TOTAL", flags=re.IGNORECASE) # pattern 1 for task #
+    p2 = re.compile("\d+ hours", flags=re.IGNORECASE) # pattern 2 for task hours 
+    timings = {}
+    nr_tasks = None
+    cols = None
+    for j, sol in enumerate(filtered_submissions):
+        # print(j) # for debugging purposes
+        timing = []
+        columns = []
+        solution = sol.find_task(task['Task_NO'], "1", task_beg, task_end)
+        next_is_hour = False 
+        for s in solution:
+            # print(s['source'][0])
+            if next_is_hour:
+                next_is_hour=False
+                rslt = p2.search(s['source'][0])
+                if rslt is not None:
+                    timing.append(int(rslt.group(0).split(' hours')[0]))
+                else:
+                    timing.append(0)
+                continue
+            #
+            rslt = p1.search(s['source'][0])
+            if rslt is not None:
+                str_task = rslt.group(0).split('Task ')[-1]
+                if str_task == 'TOTAL':
+                    columns.append('TT')
+                else:
+                    columns.append("T%s" % str_task)
+                # print("%s%s",(str_task[0],str_task[-1]))
+                next_is_hour = True
+                # print(rslt.group(0))
+            # print(s['source'][0].split('Task '))
+            # print(s.split('Task'))
+        p3 = re.compile("\w*\d+")
+        rslt = p3.search(s['source'][0])
+        std_id = rslt.group(0)
+        timings[std_id]=timing
+        # break
+    # TODO: Following 2 lines could be done in a better! (I assume student would not change the
+    # titles, and places that they are not supposed to change!)
+    nr_tasks = len(timing) # from the last student's
+    cols = columns # from the last student's columns
+    # print(len(timings.keys()))
+    # print(cols)
+    # 
+    print("#"*10)
+    #Read Student IDs from the grades excel sheet
     try:
-        print("This feature will be added later.")
+        student_ids_file = open(student_ids_path,"r+")
+        student_ids = student_ids_file.readlines()
+        for i in range(len(student_ids)):
+            if student_ids[i][-1] == '\n':
+                student_ids[i] = student_ids[i][:-1]
     except Exception as e:
-        print("Error 3.1: An exception occurred During AVG Time Calculation ... Make sure of its path!", e)
+        print("Error 2.1: An exception occurred During Reading Students IDs... Make sure of its path!", e)
+
+    # for student who were not present replace timing with zeros
+    print("Matching students..")
+    for id in student_ids:
+        if id not in timings.keys():
+            timings[id] = [0]*nr_tasks
+    # remove students that are not part of this group!
+    # TODO: perhaps these two loops could be handled better!
+    keys_to_delete = []
+    for k in timings.keys():
+        if k not in student_ids:
+            keys_to_delete.append(k)
+    # remove studetns not in the list
+    for k in keys_to_delete:
+        del timings[k] 
+
+    # to keep the order as in the student_ids.txt (FIXME: this is a hack!)
+    timings_aranged = {}
+    for id in student_ids:
+        timings_aranged[id] = timings[id]
+
+    # print(student_ids)
+    # save as excel file
+    import pandas as pd
+    df = pd.DataFrame.from_dict(timings_aranged, orient='index', columns=cols)
+    # print(df)
+    # df.sort_index(inplace=True)
+    filename = 'Timings_HW' + str(hw_no) + '.xlsx'
+    df.to_excel(filename)
+    print("Number of records/students: ", len(df))
+    print("Successfully wrote to file: ", filename)
+
+    # except Exception as e:
+        # print("Error 3.1: An exception occurred During AVG Time Calculation ... Make sure of its path!", e)
 ############ END: Calculate AVG Time #################
