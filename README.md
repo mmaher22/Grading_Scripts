@@ -11,6 +11,12 @@
 - "Grade": --> full mark of this task / subtask
 - "Task_Begin_Flag" --> flag to mark the beginning of the task
 - "Task_End_Flag" --> flag to mark the end of the task / beginning of the next task
+
+For the timing section:
+- "Task_NO": ---> "Timing"
+- "Task_Begin_Flag": --> flag to mark the beginning of the timing section i.e. "How long did it take you to solve the homework?"
+- "Task_End_Flag": --> flag to mark the end of the timing section i.e. "THANK YOU FOR YOUR EFFORT!"
+
 ##### NOTE: 
 - In case of different output from the jupyter after rurunning from the original one, we are going to put both outputs with an alert cell between them
 to tell you that the solution had a different output after rerunning.
