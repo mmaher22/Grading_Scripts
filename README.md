@@ -11,6 +11,12 @@
 - "Grade": --> full mark of this task / subtask
 - "Task_Begin_Flag" --> flag to mark the beginning of the task
 - "Task_End_Flag" --> flag to mark the end of the task / beginning of the next task
+
+For the timing section:
+- "Task_NO": ---> "Timing"
+- "Task_Begin_Flag": --> flag to mark the beginning of the timing section i.e. "How long did it take you to solve the homework?"
+- "Task_End_Flag": --> flag to mark the end of the timing section i.e. "THANK YOU FOR YOUR EFFORT!"
+
 ##### NOTE: 
 - In case of different output from the jupyter after rurunning from the original one, we are going to put both outputs with an alert cell between them
 to tell you that the solution had a different output after rerunning.
@@ -37,6 +43,7 @@ Contains the main logic of the code which basically does the following in the sa
 - create objects for each student submission and keep most recent only for multiple submissions from the same id.
 - ask user to enter either 1 for splitting the submissions into notebooks for each task/subtask alone and add cell for grades and comments after each solution.
 - OR 2 for collecting the grades from the notebooks and export them to an excel sheet.
+- OR 3 for collecting the timing (time spent, filled by students) from the notebooks and export them to another excel sheet.
 
 ### 2.HomeworkTask.py 
 Class for homework task/subtask objects and it has three methods:
