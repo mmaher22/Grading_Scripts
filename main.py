@@ -149,7 +149,7 @@ if opt == 3:
     print('Filtering Submissions.Please Wait...')
     filtered_submissions = filter_submissions(path, rerun_flag)
     p1 = re.compile("Task \w+|TOTAL", flags=re.IGNORECASE) # pattern 1 for task #
-    p2 = re.compile("\d+ hours", flags=re.IGNORECASE) # pattern 2 for task hours 
+    p2 = re.compile("\d+.\d+ hours", flags=re.IGNORECASE) # pattern 2 for task hours 
     timings = {}
     nr_tasks = None
     cols = None
@@ -165,7 +165,7 @@ if opt == 3:
                 next_is_hour=False
                 rslt = p2.search(s['source'][0])
                 if rslt is not None:
-                    timing.append(int(rslt.group(0).split(' hours')[0]))
+                    timing.append(float(rslt.group(0).split(' hours')[0].replace(',','.')))
                 else:
                     timing.append(0)
                 continue
