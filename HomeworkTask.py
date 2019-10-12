@@ -5,6 +5,7 @@ Created on Mon Sep  2 12:56:24 2019
 """
 import os
 import json
+import os.path
 
 class HomeworkTask: #Class for the Homework Task or Subtask
     def __init__(self, hw_no, task_no, grade, begin_flag, end_flag):
@@ -25,14 +26,20 @@ class HomeworkTask: #Class for the Homework Task or Subtask
     def create_task_ipynb(self):
         with open("ipynbTmp.ipynb") as f1:
             lines = f1.readlines()
-        with open(self.task_dir, "w") as f2:
-            f2.writelines(lines)
+
+        opt = 1            
+        if os.path.isfile(self.task_dir):
+            opt = int(input('WARNING: ' + str(self.task_dir) + "Exists. Input 1 to overwrite, 2 to Append. \n"))
+        if opt == 1:
+            with open(self.task_dir, "w") as f2:
+                f2.writelines(lines)
     
     #Append Solution to task ipynb file
     def append_solution(self, solution):
         with open(self.task_dir, 'r') as f:
             data = json.load(f)
         data['cells'].extend(solution)
+        
         with open(self.task_dir, 'w') as f:
             json.dump(data, f)
             
@@ -52,6 +59,8 @@ class HomeworkTask: #Class for the Homework Task or Subtask
                         elif 'Comments:' in row: 
                             id_comment[student_id] = row
                             commentFlag = True
-                        elif commentFlag == True:
+                        elif commentFlag == True and row != "\n":
                             id_comment[student_id] += row
+                        elif commentFlag == True and row == "\n":
+                            break
         return id_grade, id_comment

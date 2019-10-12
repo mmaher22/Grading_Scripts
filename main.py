@@ -3,8 +3,10 @@
 Created on Mon Sep  2 12:55:55 2019
 @author: s-moh
 """
+import re
 import json
 import xlsxwriter
+import pandas as pd
 from glob import glob
 
 from HomeworkTask import HomeworkTask
@@ -135,7 +137,6 @@ if opt == 2:
 ############ BEGIN: Calculate AVG Time #################
 if opt == 3:
     #Read Student IDs from the grades excel sheet
-    import re
     # try:
     task_beg = None
     task_end = None
@@ -227,7 +228,6 @@ if opt == 3:
 
     # print(student_ids)
     # save as excel file
-    import pandas as pd
     df = pd.DataFrame.from_dict(timings_aranged, orient='index', columns=cols)
     # print(df)
     # df.sort_index(inplace=True)

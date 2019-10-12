@@ -56,7 +56,9 @@ class Submission:
                                   "\n",
                                   "Grade:" + str(grade) + "\n",
                                   "\n",
-                                  "Comments:"]}
+                                  "Comments:",
+                                  "\n",
+                                  "\n___\n<font size = '20' color='darkgreen'> END BLOCK </font>\n___"]}
         # Flag to mark task needed
         if taskFlag == '':
             taskFlag = 'Task ' + str(task_no)
@@ -68,15 +70,24 @@ class Submission:
             solution = []
             # Search for the task in the user submission
             flag = False
+            finishedFlag = False
             for cell in data['cells']:
                 #Found the task
                 try:
-                    if taskFlag in cell['source'][0]:
-                        flag = True
-                    #Reached next task
-                    if flag == True and nxtTaskFlag in cell['source'][0]:
-                        break
-                    elif flag == True:
+                    for rowInCell in cell['source']: 
+                        if taskFlag in rowInCell:
+                           flag = True
+                           break
+                    
+                    #Check if Reached next task
+                    if flag == True:
+                        for rowInCell in cell['source']:
+                            if nxtTaskFlag in rowInCell:
+                                finishedFlag = True
+                        if finishedFlag == True:
+                            break
+                    
+                    if flag == True:
                         solution.append(cell)
                 except:
                     continue
