@@ -20,7 +20,7 @@ class HomeworkTask: #Class for the Homework Task or Subtask
         if not os.path.exists(directory):
             os.makedirs(directory)
         #Create a new ipynb file for the task
-        self.task_dir = directory + '//Task' + str(self.task_no) + '.ipynb'
+        self.task_dir = directory + '/Task' + str(self.task_no) + '.ipynb'
         
     #Create ipynb files for the tasks
     def create_task_ipynb(self):

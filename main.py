@@ -74,7 +74,7 @@ if opt == 1:
             task.create_task_ipynb()
             print(task.task_dir)
             for sol in filtered_submissions:
-                solution = sol.find_task(task.task_no, task.task_grade, task.begin_flag, task.end_flag)
+                solution = sol.find_task(task.task_no, task.task_grade, task.begin_flag, task.end_flag, task.task_dir)
                 task.append_solution(solution)
     except Exception as e:
         print("Error 1.2: An exception occured during creating tasks notebooks ", e)

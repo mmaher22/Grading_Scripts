@@ -39,20 +39,21 @@ class Submission:
         #os.system(cmd)
         
     # Method to Find specific task solution for that user
-    def find_task(self, task_no, grade, taskFlag = '', nxtTaskFlag = ''):
+    def find_task(self, task_no, grade, taskFlag = '', nxtTaskFlag = '', taskDir = ''):
         #print('Submission Path = ', self.submission_path)
         with open(self.submission_path, 'r', encoding="utf8") as f:
             cnt_data = json.load(f)
         #Create Alert Cell For Different Solutions after rerun
         alert_cell = {"cell_type": "markdown", "metadata": {},
                        "source": ["# ALERT: Solution After Rerun is different!!! (Old Solution is Next)"]}
+        pathDiff = str(os.path.relpath(self.submission_path, start = os.path.dirname(os.path.abspath(taskDir)) )).replace('\\', '/')
         #Create Solution Footer Cells
         solution_footer = {"cell_type": "markdown", "metadata": {},
                        "source": ["# StudentID:" + str(self.id) + "\n",
                                   "\n",
                                   "TrialNO:" + str(self.trial) + "\n",
                                   "\n",
-                                  "SubmissionURL:<a href = '" + self.submission_path + "'>HERE</a> \n",
+                                  "Submission:Link to [Notebook]("+ pathDiff + ")\n",
                                   "\n",
                                   "Grade:" + str(grade) + "\n",
                                   "\n",
