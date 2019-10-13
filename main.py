@@ -8,13 +8,14 @@ import json
 import xlsxwriter
 import pandas as pd
 from glob import glob
-
 from HomeworkTask import HomeworkTask
 from Submission import Submission
 from pathlib import Path
 
 ############ Filtering Submissions to keep most recent one only #################            
 def filter_submissions(path, rerun_flag):
+    with open("FailedNBs.txt", "w") as f:
+        f.write('')
     submissions = list(sorted(path.glob('*.ipynb')))
     #print(submissions)
     final_submissions = []
@@ -26,8 +27,14 @@ def filter_submissions(path, rerun_flag):
         if student_id in ids:
             continue
         else:
-            final_submissions.append(Submission(student_id, str(submissions[s]), trial_no, rerun_flag))
-            ids.append(student_id)
+            try:
+                processed_submission = Submission(student_id, str(submissions[s]), trial_no, rerun_flag)
+                final_submissions.append(processed_submission)
+                ids.append(student_id)
+            except Exception as e:
+                with open("FailedNBs.txt", "a") as f:
+                    f.write(str(student_id) + '\n')
+                print('Error 1.1: Error Reading Submission of Student ID ' + student_id + '-->', e)
     return final_submissions
 ############ END: Filtering Submissions to keep most recent one only #################
 
@@ -41,12 +48,8 @@ try:
     path = Path(data['HW_Path']) #HW Submission Folder
     student_ids_path = Path(data['student_ids']) #path to student ids file
     rerun_flag = data['Rerun']
-    #data['Rerun'] = 0
     task_begin_flag = ''
     task_end_flag = ''
-    
-    #with open('conf.json', 'w', encoding="utf8") as f:
-    #    json.dump(data, f, indent=4)
         
 except Exception as e:
     print('Error 0.1: Error Reading JSON Configuration File - ', e)
@@ -66,7 +69,7 @@ if opt == 1:
     try:
         filtered_submissions = filter_submissions(path, rerun_flag)
     except Exception as e:
-        print("Error 1.1: An exception occured during running notebooks ", e)
+        print("Error 1.2: An exception occured during running notebooks ", e)
         
     print('Creating Tasks Notebooks. Please Wait...')
     try:
@@ -77,7 +80,7 @@ if opt == 1:
                 solution = sol.find_task(task.task_no, task.task_grade, task.begin_flag, task.end_flag, task.task_dir)
                 task.append_solution(solution)
     except Exception as e:
-        print("Error 1.2: An exception occured during creating tasks notebooks ", e)
+        print("Error 1.3: An exception occured during creating tasks notebooks ", e)
 ############ END: Collect Solutions of a specific task #################
     
     
@@ -148,7 +151,7 @@ if opt == 3:
     print(task_end)
     print(path)
     print('Filtering Submissions.Please Wait...')
-    filtered_submissions = filter_submissions(path, rerun_flag)
+    filtered_submissions = filter_submissions(path, 0)
     p1 = re.compile("Task \w+|TOTAL", flags=re.IGNORECASE) # pattern 1 for task #
     p2 = re.compile("\d+.\d+ hours", flags=re.IGNORECASE) # pattern 2 for task hours 
     timings = {}
