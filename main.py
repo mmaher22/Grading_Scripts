@@ -153,7 +153,7 @@ if opt == 3:
     print('Filtering Submissions.Please Wait...')
     filtered_submissions = filter_submissions(path, 0)
     p1 = re.compile("Task \w+|TOTAL", flags=re.IGNORECASE) # pattern 1 for task #
-    p2 = re.compile("\d+.\d+ hours", flags=re.IGNORECASE) # pattern 2 for task hours 
+    p2 = re.compile("\d+[.\d+]* hours", flags=re.IGNORECASE) # pattern 2 for task hours 
     timings = {}
     nr_tasks = None
     cols = None
