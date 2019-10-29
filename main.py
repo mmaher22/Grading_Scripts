@@ -146,10 +146,16 @@ if opt == 3:
     for task in data['Tasks']:
         if task['Task_NO'] == "Timing":
             task_beg, task_end = task['Task_Begin_Flag'], task['Task_End_Flag']
+            # used as a sanity check of the number of fields expected for the timing
+            if 'TASK_NR_FIELDS' in task:
+                task_nr_fields = int(task['TASK_NR_FIELDS'])
+            else:
+                task_nr_fields = int(input("How many fields timing has for this homework (enter an integer):"))
     # print("This feature will be added later.")
-    print(task_beg)
-    print(task_end)
-    print(path)
+    print("Timing extraction setting review: "
+    print("  Beg tag: ", task_beg)
+    print("  End tag: ", task_end)
+    print("  path: ", path)
     print('Filtering Submissions.Please Wait...')
     filtered_submissions = filter_submissions(path, 0)
     p1 = re.compile("Task \w+|TOTAL", flags=re.IGNORECASE) # pattern 1 for task #
@@ -167,9 +173,12 @@ if opt == 3:
             # print(s['source'][0])
             if next_is_hour:
                 next_is_hour=False
+                if s['source'] == []:
+                    continue
                 rslt = p2.search(s['source'][0])
                 if rslt is not None:
-                    timing.append(float(rslt.group(0).split(' hours')[0].replace(',','.')))
+                    rslt = re.sub('[+#$%^&*(<>-]', '', rslt.group(0)) # remove symbols like plus in "5+ hours"
+                    timing.append(float(rslt.split(' hours')[0].replace(',','.')))
                 else:
                     timing.append(0)
                 continue
@@ -189,7 +198,11 @@ if opt == 3:
         p3 = re.compile("\w*\d+")
         rslt = p3.search(s['source'][0])
         std_id = rslt.group(0)
-        timings[std_id]=timing
+        if task_nr_fields == len(timing):
+            timings[std_id]=timing
+        else:
+            print("ignore timing from %s, expected %i fields in timing but found %i " % (std_id,
+                task_nr_fields, len(timing)))
         # break
     # TODO: Following 2 lines could be done in a better! (I assume student would not change the
     # titles, and places that they are not supposed to change!)
@@ -198,7 +211,6 @@ if opt == 3:
     # print(len(timings.keys()))
     # print(cols)
     # 
-    print("#"*10)
     #Read Student IDs from the grades excel sheet
     try:
         student_ids_file = open(student_ids_path,"r+")
@@ -211,9 +223,14 @@ if opt == 3:
 
     # for student who were not present replace timing with zeros
     print("Matching students..")
+    failed_extractions = []
     for id in student_ids:
         if id not in timings.keys():
+            failed_extractions.append(id)
             timings[id] = [0]*nr_tasks
+
+    if failed_extractions:
+        print("Failed to extract timings for %i students: " % len(failed_extractions), failed_extractions)
     # remove students that are not part of this group!
     # TODO: perhaps these two loops could be handled better!
     keys_to_delete = []
@@ -236,7 +253,8 @@ if opt == 3:
     # df.sort_index(inplace=True)
     filename = 'Timings_HW' + str(hw_no) + '.xlsx'
     df.to_excel(filename)
-    print("Number of records/students: ", len(df))
+    print("Number of (current) submissions: ", len(filtered_submissions))
+    print("Number of records for timings to store (whole class): ", len(df))
     print("Successfully wrote to file: ", filename)
 
     # except Exception as e:
