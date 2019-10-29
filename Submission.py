@@ -15,13 +15,6 @@ class Submission:
         self.trial = trial
         self.rerun_flag = rerun_flag
         
-        ################### TODO: Remove This after 2nd Homework (Replace Exception Statements)
-        with open(self.submission_path, 'r', encoding="utf8") as f:
-            data = json.dumps(json.load(f))
-        data = data.replace("except NotImplementedError as e", "except Exception as e")
-        with open(self.submission_path, 'w', encoding="utf8") as f:
-            json.dump(json.loads(data), f, indent=4)
-        ################### END TODO: Remove This after 2nd Homework
         
         with open(self.submission_path, 'r', encoding="utf8") as f:
             self.old_data = json.load(f)
