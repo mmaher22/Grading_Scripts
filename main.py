@@ -43,11 +43,15 @@ def filter_submissions(path, rerun_flag):
 try:
     with open('conf.json', 'r', encoding="utf8") as f:
         data = json.load(f)
-    
+        
     hw_no = data['HW_NO'] #Homework number
     path = Path(data['HW_Path']) #HW Submission Folder
     student_ids_path = Path(data['student_ids']) #path to student ids file
     rerun_flag = data['Rerun']
+    if 'plag_threshold' in data.keys():
+        plagiarsim_threshold = data['plag_threshold']
+    else:
+        plagiarsim_threshold = 2
     task_begin_flag = ''
     task_end_flag = ''
         
@@ -61,7 +65,7 @@ for task in data['Tasks']:
     hwTasks.append(HomeworkTask(hw_no, task['Task_NO'], task['Grade'], task['Task_Begin_Flag'], task['Task_End_Flag']))
 #### END: READ CONFIGURATION #########
 
-opt = int(input("Enter:\n 1 to Collect Solutions of each task in a separate notebook\n 2 to Collect Grades to an excel sheet\n 3 to collect timings:\n"))
+opt = int(input("Enter:\n 1 to Collect Solutions of each task in a separate notebook\n 2 to Collect Grades to an excel sheet\n 3 to collect timings\n 4 to check plagiarism:\n"))
 ############ BEGIN: Collect Solutions of a specific task #################
 if opt == 1:
     # Filter Submission to keep most recent only
@@ -152,7 +156,7 @@ if opt == 3:
             else:
                 task_nr_fields = int(input("How many fields timing has for this homework (enter an integer):"))
     # print("This feature will be added later.")
-    print("Timing extraction setting review: "
+    print("Timing extraction setting review: ")
     print("  Beg tag: ", task_beg)
     print("  End tag: ", task_end)
     print("  path: ", path)
@@ -260,3 +264,34 @@ if opt == 3:
     # except Exception as e:
         # print("Error 3.1: An exception occurred During AVG Time Calculation ... Make sure of its path!", e)
 ############ END: Calculate AVG Time #################
+
+
+############ BEGIN: Similarity Checker #################
+if opt == 4:
+    #Calculate Similarity for each task
+    #try:
+    suspects_freq = {}
+    with open("Plagiarism_Suspects.txt", "w") as f:
+        f.write('SUSPECTS PER TASK\nStudent1,Student2,Similarity_Score,Task\n')
+    suspects_total = 0
+    for task in hwTasks:
+        with open("Plagiarism_Suspects.txt", "a") as f:
+            suspects = task.similarity_calculator(plagiarsim_threshold)
+            for s in suspects:
+                suspects_key = str(s[0]) + ',' + str(s[1])
+                f.write(suspects_key + ',' + str(s[2] * 100) + ',' + str(task.task_no) + '\n')
+                if suspects_key in suspects_freq.keys():
+                    suspects_freq[suspects_key] += 1
+                else:
+                    suspects_freq[suspects_key] = 1
+                    
+        suspects_total += len(suspects)
+        
+    with open("Plagiarism_Suspects.txt", "a") as f:
+        f.write('#########################################\nFREQUENCY OF SAME SUSPECTS\nStudent1,Student2,Frequency\n')
+        for k in suspects_freq.keys():
+            f.write(k + ',' + str(suspects_freq[k]) + '\n')
+    print('Done: Checking for Plagiarism --> ', suspects_total, ' Suspections Found!')
+    #except Exception as e:
+    #    print("Error 4.2: Something went wrong when checking similarity!", e)
+############ END: Similarity Checker #################
