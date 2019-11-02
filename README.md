@@ -10,7 +10,7 @@ I added fourth option now to the scripts for plagiarism detection, and updated c
 I went quickly through the different similarity measurements. I think token based methods are the most suitable ones in our case even complexity wise. However, we may need to read more about other methods and choose a better one or even a hybrid method if jaccard doesn't work well.
 
 - The script runs over the notebooks of subtasks after splitting. So, if we want to check plagarism over all students then we need to run option 1 first over all students submission OR one of us collects all graded notebooks at the end and merge them together before checking for plagarism (I prefer this option as we can avoid getting suspects who didn't solve the subtask at all --> (similarity = 100%) by skipping the solutions with grade = 0)
-
+<hr>
 ## In Order to use the code, you need to modify each of the following:
 ### 1. conf.json:
 - "HW_NO" --> is the homework number
