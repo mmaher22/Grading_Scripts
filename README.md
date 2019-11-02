@@ -1,6 +1,6 @@
 # Grading Scripts
 
-### Plagiarism Detection Option:
+### [UPDATE]: Plagiarism Detection Option:
 I added fourth option now to the scripts for plagiarism detection, and updated code on Github.
 - The output of this option execution will be Plagiarism_Suspects.txt including 2 sections. The first contains suspects per task and the second is the frequency of same two students being suspects at different tasks.
 
