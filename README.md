@@ -11,6 +11,7 @@ I went quickly through the different similarity measurements. I think token base
 
 - The script runs over the notebooks of subtasks after splitting. So, if we want to check plagarism over all students then we need to run option 1 first over all students submission OR one of us collects all graded notebooks at the end and merge them together before checking for plagarism (I prefer this option as we can avoid getting suspects who didn't solve the subtask at all --> (similarity = 100%) by skipping the solutions with grade = 0)
 <hr>
+
 ## In Order to use the code, you need to modify each of the following:
 ### 1. conf.json:
 - "HW_NO" --> is the homework number
