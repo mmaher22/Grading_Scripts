@@ -2,6 +2,14 @@
 
 *University of Tartu MTAT.03.227 Machine Learning course*
 
+### Installation
+
+Create and activate a conda virtual environment
+```
+conda env create -f environment.yml
+conda activate mlenv
+```
+
 ### Basic usage
 
 To collect the solutions for the first homework and organize them by task, run: 
