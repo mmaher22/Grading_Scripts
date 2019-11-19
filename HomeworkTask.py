@@ -17,53 +17,53 @@ class HomeworkTask: #Class for the Homework Task or Subtask
         self.begin_flag = begin_flag
         self.end_flag = end_flag
         
-        directory = './output/Grading_HW' + str(self.hw_no)
+        grading_dir = f'./output/Grading_HW{self.hw_no:02d}'
         #Create directory for the homework
-        if not os.path.exists(directory):
-            os.makedirs(directory)
+        if not os.path.exists(grading_dir):
+            os.makedirs(grading_dir)
         #Create a new ipynb file for the task
-        self.task_dir = directory + '/Task' + str(self.task_no) + '.ipynb'
+        self.task_path = os.path.join(grading_dir, f'/Task{self.task_no}.ipynb')
         
     #Create ipynb files for the tasks
     def create_task_ipynb(self):
-        with open("./data/ipynb_tmp.ipynb") as f1:
-            lines = f1.readlines()
+        with open("./data/ipynb_tmp.ipynb") as f:
+            lines = f.readlines()
 
         opt = 1            
-        if os.path.isfile(self.task_dir):
-            opt = int(input('WARNING: ' + str(self.task_dir) + "Exists. Input 1 to overwrite, 2 to Append. \n"))
+        if os.path.isfile(self.task_path):
+            opt = int(input('WARNING: ' + str(self.task_path) + "Exists. Input 1 to overwrite, 2 to Append. \n"))
         if opt == 1:
-            with open(self.task_dir, "w") as f2:
-                f2.writelines(lines)
+            with open(self.task_path, "w") as f:
+                f.writelines(lines)
     
     #Append Solution to task ipynb file
     def append_solution(self, solution):
-        with open(self.task_dir, 'r') as f:
+        with open(self.task_path, 'r') as f:
             data = json.load(f)
         data['cells'].extend(solution)
         
-        with open(self.task_dir, 'w') as f:
+        with open(self.task_path, 'w') as f:
             json.dump(data, f)
             
     #Extract Results from the graded task notebook
     def extract_results(self):
         id_grade = {}
         id_comment = {}
-        with open(self.task_dir, 'r', encoding="utf8") as f:
+        with open(self.task_path, 'r', encoding="utf8") as f:
             data = json.load(f)['cells']
             for cell in data:
                 if len(cell['source']) != 0 and '# StudentID:' in cell['source'][0]:
                     student_id = cell['source'][0].split(':')[1][:-1] #Parse Student ID
-                    commentFlag = False #flag the beginning of the comments
+                    comment_flag = False #flag the beginning of the comments
                     for row in cell['source']:
                         if 'Grade:' in row:
                             id_grade[student_id] = float(row.split(':')[1]) #Parse Grade Value
                         elif 'Comments:' in row: 
                             id_comment[student_id] = row
-                            commentFlag = True
-                        elif commentFlag == True and row != "\n":
+                            comment_flag = True
+                        elif comment_flag and row != "\n":
                             id_comment[student_id] += row
-                        elif commentFlag == True and row == "\n":
+                        elif comment_flag and row == "\n":
                             break
         return id_grade, id_comment
     
@@ -80,7 +80,7 @@ class HomeworkTask: #Class for the Homework Task or Subtask
         #Compute similarity value matrix between all students
         students_solutions = {}
         student_ids = []
-        with open(self.task_dir, 'r', encoding="utf8") as f:
+        with open(self.task_path, 'r', encoding="utf8") as f:
             data = json.load(f)['cells']
             cnt_solution = ''
             for cell in data:
