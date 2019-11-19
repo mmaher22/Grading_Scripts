@@ -17,7 +17,7 @@ class HomeworkTask: #Class for the Homework Task or Subtask
         self.begin_flag = begin_flag
         self.end_flag = end_flag
         
-        directory = 'Grading_HW' + str(self.hw_no)
+        directory = './output/Grading_HW' + str(self.hw_no)
         #Create directory for the homework
         if not os.path.exists(directory):
             os.makedirs(directory)

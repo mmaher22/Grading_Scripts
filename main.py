@@ -123,7 +123,7 @@ def collect_grades(hw_no, student_ids, hw_tasks):
     
     #Create Excel Sheet for the grades
     try:
-        workbook = xlsxwriter.Workbook('Grades_HW' + str(hw_no) + '.xlsx')
+        workbook = xlsxwriter.Workbook('./output/Grades_HW' + str(hw_no) + '.xlsx')
         worksheet = workbook.add_worksheet()
         worksheet.write('A1', 'ID')
         i = 2
@@ -288,16 +288,17 @@ def collect_timings(data, path, student_ids, hw_no):
 
 
 ############ BEGIN: Similarity Checker #################
-def check_plagiarism(hw_tasks, plagiarsim_threshold):
+def check_plagiarism(hw_tasks, plagiarism_threshold):
     #Calculate Similarity for each task
     #try:
     suspects_freq = {}
-    with open("Plagiarism_Suspects.txt", "w") as f:
+    fname = "./logs/plagiarism_suspects.txt"
+    with open(fname, "w") as f:
         f.write('SUSPECTS PER TASK\nStudent1,Student2,Similarity_Score,Task\n')
     suspects_total = 0
     for task in hw_tasks:
-        with open("Plagiarism_Suspects.txt", "a") as f:
-            suspects = task.similarity_calculator(plagiarsim_threshold)
+        with open(fname, "a") as f:
+            suspects = task.similarity_calculator(plagiarism_threshold)
             for s in suspects:
                 suspects_key = str(s[0]) + ',' + str(s[1])
                 f.write(suspects_key + ',' + str(s[2] * 100) + ',' + str(task.task_no) + '\n')
@@ -308,7 +309,7 @@ def check_plagiarism(hw_tasks, plagiarsim_threshold):
                     
         suspects_total += len(suspects)
         
-    with open("plagiarism_suspects.txt", "a") as f:
+    with open(fname, "a") as f:
         f.write('#########################################\nFREQUENCY OF SAME SUSPECTS\nStudent1,Student2,Frequency\n')
         for k in suspects_freq.keys():
             f.write(k + ',' + str(suspects_freq[k]) + '\n')
@@ -382,7 +383,7 @@ def main():
         pass
     elif args.plagiarism:
         print(f'Checking plagiarism for Homework {args.homework:02d}...')
-        check_plagiarism(hw_tasks=hw_tasks, plagiarsim_threshold=args.threshold)
+        check_plagiarism(hw_tasks=hw_tasks, plagiarism_threshold=args.threshold)
         pass
 
     return
