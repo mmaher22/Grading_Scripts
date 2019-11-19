@@ -22,7 +22,8 @@ class HomeworkTask: #Class for the Homework Task or Subtask
         if not os.path.exists(grading_dir):
             os.makedirs(grading_dir)
         #Create a new ipynb file for the task
-        self.task_path = os.path.join(grading_dir, f'/Task{self.task_no}.ipynb')
+        self.task_path = os.path.join(grading_dir, f'Task{self.task_no}.ipynb')
+        # print(self.task_path)
         
     #Create ipynb files for the tasks
     def create_task_ipynb(self):

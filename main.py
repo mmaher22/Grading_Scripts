@@ -100,9 +100,9 @@ def collect_solutions(hw_tasks, path, rerun_flag):
     try:
         for task in hw_tasks:
             task.create_task_ipynb()
-            print(task.task_dir)
+            print(task.task_path)
             for sol in filtered_submissions:
-                solution = sol.find_task(task.task_no, task.task_grade, task.begin_flag, task.end_flag, task.task_dir)
+                solution = sol.find_task(task.task_no, task.task_grade, task.begin_flag, task.end_flag, task.task_path)
                 task.append_solution(solution)
     except Exception as e:
         print("Error 1.3: An exception occured during creating tasks notebooks ", e)
@@ -123,7 +123,7 @@ def collect_grades(hw_no, student_ids, hw_tasks):
     
     #Create Excel Sheet for the grades
     try:
-        workbook = xlsxwriter.Workbook('./output/Grades_HW' + str(hw_no) + '.xlsx')
+        workbook = xlsxwriter.Workbook(f'./output/Grades_HW{hw_no:02d}.xlsx')
         worksheet = workbook.add_worksheet()
         worksheet.write('A1', 'ID')
         i = 2
@@ -135,25 +135,25 @@ def collect_grades(hw_no, student_ids, hw_tasks):
     
     #Add Tasks Grades to the grades excel sheet
     try:
-        taskLetter = 66 #B = 66 in ASCII (To start with Column B)
+        task_letter = 66 #B = 66 in ASCII (To start with Column B)
         for task in hw_tasks:
             id_grade, id_comments = task.extract_results()
             present_ids = list(id_grade.keys()) #list of students who solved this task
-            if taskLetter < 91:
-                taskColHeader = str(chr(taskLetter))
+            if task_letter < 91:
+                task_col_header = str(chr(task_letter))
             else:
-                taskColHeader = str('A' + chr(taskLetter - 26))
-            worksheet.write(taskColHeader + '1', str(task.task_no)) #read task number header
+                task_col_header = str('A' + chr(task_letter - 26))
+            worksheet.write(task_col_header + '1', str(task.task_no)) #read task number header
             i = 2
             for student_id in student_ids:
                 if student_id not in present_ids: #student has not submitted the homework
                     id_grade[student_id] = 0
                     id_comments[student_id] = ''
-                worksheet.write(taskColHeader + str(i), str(id_grade[student_id])) #write the grade
+                worksheet.write(task_col_header + str(i), str(id_grade[student_id])) #write the grade
                 if len(id_comments[student_id]) > 10: #there is a comment
-                    worksheet.write_comment(taskColHeader + str(i), id_comments[student_id]) #write the comment
+                    worksheet.write_comment(task_col_header + str(i), id_comments[student_id]) #write the comment
                 i += 1
-            taskLetter += 1 #Move to next column for the next task
+            task_letter += 1 #Move to next column for the next task
             
         workbook.close()
         print('Done: Adding Grades to the Excel Sheet')
@@ -198,19 +198,19 @@ def collect_timings(data, path, student_ids, hw_no):
             # print(s['source'][0])
             if next_is_hour:
                 next_is_hour=False
-                if s['source'] == []:
+                if not s['source']:
                     continue
-                rslt = p2.search(s['source'][0])
-                if rslt is not None:
-                    rslt = re.sub('[+#$%^&*(<>-]', '', rslt.group(0)) # remove symbols like plus in "5+ hours"
-                    timing.append(float(rslt.split(' hours')[0].replace(',','.')))
+                result = p2.search(s['source'][0])
+                if result is not None:
+                    result = re.sub('[+#$%^&*(<>-]', '', result.group(0)) # remove symbols like plus in "5+ hours"
+                    timing.append(float(result.split(' hours')[0].replace(',', '.')))
                 else:
                     timing.append(0)
                 continue
             #
-            rslt = p1.search(s['source'][0])
-            if rslt is not None:
-                str_task = rslt.group(0).split('Task ')[-1]
+            result = p1.search(s['source'][0])
+            if result is not None:
+                str_task = result.group(0).split('Task ')[-1]
                 if str_task == 'TOTAL':
                     columns.append('TT')
                 else:
@@ -221,8 +221,8 @@ def collect_timings(data, path, student_ids, hw_no):
             # print(s['source'][0].split('Task '))
             # print(s.split('Task'))
         p3 = re.compile("\w*\d+")
-        rslt = p3.search(s['source'][0])
-        std_id = rslt.group(0)
+        result = p3.search(s['source'][0])
+        std_id = result.group(0)
         if task_nr_fields == len(timing):
             timings[std_id]=timing
         else:
@@ -276,7 +276,7 @@ def collect_timings(data, path, student_ids, hw_no):
     df = pd.DataFrame.from_dict(timings_aranged, orient='index', columns=cols)
     # print(df)
     # df.sort_index(inplace=True)
-    filename = 'Timings_HW' + str(hw_no) + '.xlsx'
+    filename = f'./output/Timings_HW{hw_no:02d}.xlsx'
     df.to_excel(filename)
     print("Number of (current) submissions: ", len(filtered_submissions))
     print("Number of records for timings to store (whole class): ", len(df))
