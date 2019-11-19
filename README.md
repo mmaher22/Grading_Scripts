@@ -1,6 +1,44 @@
-# Grading Scripts
+# Jupyter Grading Scripts
 
-### [UPDATE]: Plagiarism Detection Option:
+*University of Tartu MTAT.03.227 Machine Learning course*
+
+### Basic usage
+
+To collect the solutions for the first homework and organize them by task, run: 
+```
+python main.py 1 -s
+```
+To export the grades from the generated `.ipynb` files, run:
+```
+python main.py 1 -g
+```
+Now you can copy-paste grades from the generated `.xlsx` to the grading sheet.
+
+#### Options
+```
+python main.py [-h] (-s | -g | -t | -p) [-c CONFIG] [-i STUDENTS] [-r]
+               [--threshold THRESHOLD]
+               {1,2,3,4,5,6}
+
+positional arguments:
+  {1,2,3,4,5,6}         homework id to work with
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -s, --solutions       collect solutions of each task in a separate notebook
+  -g, --grades          collect grades to an excel sheet
+  -t, --timings         collect timings
+  -p, --plagiarism      check plagiarism
+  -c CONFIG, --config CONFIG
+                        path to config json
+  -i STUDENTS, --students STUDENTS
+                        path to config json
+  -r, --rerun           rerun all the submissions
+  --threshold THRESHOLD
+                        plagiarism warning threshold
+```
+
+### Plagiarism Detection
 I added fourth option now to the scripts for plagiarism detection, and updated code on Github.
 - The output of this option execution will be Plagiarism_Suspects.txt including 2 sections. The first contains suspects per task and the second is the frequency of same two students being suspects at different tasks.
 
