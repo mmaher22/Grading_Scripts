@@ -1,0 +1,176 @@
+{
+    "HW_NO": 3,
+    "student_ids": "student_ids.txt",
+    "HW_Path": "C://Users//papkov//UT//MachineLearning//teaching2019//ML2019_HW3//submissions",
+    "Rerun": 0,
+	"plag_threshold":2,
+    "Tasks": [
+        {
+            "Task_NO": "1.a",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(a)** Load the \"wine\" dataset from sklearn datasets, ",
+            "Task_End_Flag": "**(b)** Split the dataset into 80% training data and 20% test data "
+        },
+        {
+            "Task_NO": "1.b",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(b)** Split the dataset into 80% training data and 20% test data ",
+            "Task_End_Flag": "**(c)** Use the KNN Classifier from Sklearn to fit a model for "
+        },
+        {
+            "Task_NO": "1.c",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(c)** Use the KNN Classifier from Sklearn to fit a model for ",
+            "Task_End_Flag": "**(d)** Use the best value of K from the previous subtask, "
+        },
+        {
+            "Task_NO": "1.d",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(d)** Use the best value of K from the previous subtask, ",
+            "Task_End_Flag": "**(e)** Try to use weights for nearest neighbors according to the"
+        },
+        {
+            "Task_NO": "1.e",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(e)** Try to use weights for nearest neighbors according to the ",
+            "Task_End_Flag": "**(f)** Standardize the features in the whole dataset by subtracting "
+        },
+        {
+            "Task_NO": "1.f",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(f)** Standardize the features in the whole dataset by subtracting ",
+            "Task_End_Flag": "**(g)** Based on your observations during this task, "
+        },
+        {
+            "Task_NO": "1.g",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(g)** Based on your observations during this task, ",
+            "Task_End_Flag": "## Task 2. Linear and polynomial kernels in SVM "
+        },
+        {
+            "Task_NO": "2.a",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(a)** Let's first learn SVM with the linear kernel. ",
+            "Task_End_Flag": "**(b)** Can SVM with the linear kernel separate these data?"
+        },
+        {
+            "Task_NO": "2.b",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(b)** Can SVM with the linear kernel separate these data?",
+            "Task_End_Flag": "**(c)** Now learn the SVM model with the polynomial kernel of "
+        },
+		{
+            "Task_NO": "2.c",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(c)** Now learn the SVM model with the polynomial kernel of ",
+            "Task_End_Flag": "**(d)** Let us try to understand the reason why one degree worked "
+        },
+		{
+            "Task_NO": "2.d",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(d)** Let us try to understand the reason why one degree worked ",
+            "Task_End_Flag": "**(e)** Expand the expression "
+        },
+		{
+            "Task_NO": "2.e",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(e)** Expand the expression ",
+            "Task_End_Flag": "**(f)** Please now list all features that are included in the "
+        },
+		{
+            "Task_NO": "2.f",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(f)** Please now list all features that are included in the ",
+            "Task_End_Flag": "**(g)** Is the best discriminator from subtask **(d)** present among "
+        },
+		{
+            "Task_NO": "2.g",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(g)** Is the best discriminator from subtask **(d)** present among ",
+            "Task_End_Flag": "**(h)** Please now expand the expression "
+        },
+		{
+            "Task_NO": "2.h",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(h)** Please now expand the expression ",
+            "Task_End_Flag": "**(i)** Is the best discriminator from subtask **(d)** present among "
+        },
+		{
+            "Task_NO": "2.i",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(i)** Is the best discriminator from subtask **(d)** present among ",
+            "Task_End_Flag": "**(j)** The polynomial kernel is actually defined by "
+        },
+		{
+            "Task_NO": "2.j",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(j)** The polynomial kernel is actually defined by ",
+            "Task_End_Flag": "**(k)** The value "
+        },
+		{
+            "Task_NO": "2.k",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(k)** The value ",
+            "Task_End_Flag": "## Task 3: Gaussian kernel in SVM "
+        },
+        {
+            "Task_NO": "3.a",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(a)** Make 6 plots and show how RBF kernel works with different ",
+            "Task_End_Flag": "**(b)** Now change the gamma parameter: "
+        },
+        {
+            "Task_NO": "3.b",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(b)** Now change the gamma parameter: ",
+            "Task_End_Flag": "## Task 4: Decision tree learning "
+        },
+        {
+            "Task_NO": "4.a",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(a)** First build a decision tree of maximum depth 2, calculate ",
+            "Task_End_Flag": "**(b)** Plot the tree using the following code. Interpret the tree "
+        },
+        {
+            "Task_NO": "4.b",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(b)** Plot the tree using the following code. Interpret the tree ",
+            "Task_End_Flag": "**(c)** Explain how decision tree deals with:"
+        },
+        {
+            "Task_NO": "4.c",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(c)** Explain how decision tree deals with:",
+            "Task_End_Flag": "**(d)** Next, build a tree with the default parameters and calculate "
+        },
+        {
+            "Task_NO": "4.d",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(d)** Next, build a tree with the default parameters and calculate ",
+            "Task_End_Flag": "**(e)** Modify the learning algorithm to get rid of the problem you "
+        },
+        {
+            "Task_NO": "4.e",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(e)** Modify the learning algorithm to get rid of the problem you ",
+            "Task_End_Flag": "**(f)** Now build a tree with max_depth = 7 and visualize it. "
+        },
+        {
+            "Task_NO": "4.f",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(f)** Now build a tree with max_depth = 7 and visualize it. ",
+            "Task_End_Flag": "**(g)** What seem to be the most important features? "
+        },
+        {
+            "Task_NO": "4.g",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(g)** What seem to be the most important features? ",
+            "Task_End_Flag": "This was the last task! Please restart and run all before submission!"
+        },
+        {
+         "Task_NO": "Timing",
+         "Task_Begin_Flag":"How long did it take you to solve the homework?",
+         "Task_End_Flag":"THANK YOU FOR YOUR EFFORT!"
+        }
+    ]
+}

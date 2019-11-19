@@ -1,0 +1,182 @@
+{
+    "HW_NO": 4,
+    "student_ids": "student_ids.txt",
+    "HW_Path": "/home/novin/workspace/school/lbd/MachineLearning/Meelis Kull/gradingscript/Homeworks/MTAT.03.227_4",
+    "Rerun": 0,
+    "Tasks": [
+        {
+            "Task_NO": "1.a",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(a)** On the test set calculate the accuracy of the KNN model",
+            "Task_End_Flag": "**(b)** Look at the detailed results of cross-validation as"
+        },
+        {
+            "Task_NO": "1.b",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(b)** Look at the detailed results of cross-validation as",
+            "Task_End_Flag": "Let us now keep only some of the columns which are the most"
+        },
+        {
+            "Task_NO": "1.c",
+            "Grade": 1,
+            "Task_Begin_Flag": "Let us now keep only some of the columns which are the most",
+            "Task_End_Flag": "**(d)** Let us now wrap up parameter tuning process into"
+        },
+        {
+            "Task_NO": "1.d",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(d)** Let us now wrap up parameter tuning process into",
+            "Task_End_Flag": "**(e)** Are different parameter settings ranked similarly"
+        },
+        {
+            "Task_NO": "1.e",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(e)** Are different parameter settings ranked similarly",
+            "Task_End_Flag": "**(f)** Tune the Decision Tree learner by trying out"
+        },
+        {
+            "Task_NO": "1.f",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(f)** Tune the Decision Tree learner by trying out",
+            "Task_End_Flag": "**(g)** Tune the Random Forest learner by trying out"
+        },
+        {
+            "Task_NO": "1.g",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(g)** Tune the Random Forest learner by trying out",
+            "Task_End_Flag": "**(h)** Tune the SVM-RBF learner by trying out"
+        },
+        {
+            "Task_NO": "1.h",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(h)** Tune the SVM-RBF learner by trying out",
+            "Task_End_Flag": "**(i)** All the above models can produce class probabities"
+        },
+        {
+            "Task_NO": "1.i",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(i)** All the above models can produce class probabities",
+            "Task_End_Flag": "**(j)** Next we define a new class ThresholdedModel"
+        },
+        {
+            "Task_NO": "1.j",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(j)** Next we define a new class ThresholdedModel",
+            "Task_End_Flag": "**(k)** Next we define a function to consider all"
+        },
+        {
+            "Task_NO": "1.k",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(k)** Next we define a function to consider all",
+            "Task_End_Flag": "**(l)** Run the code below to evaluate the constructed"
+        },
+        {
+            "Task_NO": "1.l",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(l)** Run the code below to evaluate the constructed",
+            "Task_End_Flag": "**(m)** From the above tables compare the F-measure"
+        },
+        {
+            "Task_NO": "1.m",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(m)** From the above tables compare the F-measure",
+            "Task_End_Flag": "**(n)** From the above tables compare the accuracy"
+        },
+        {
+            "Task_NO": "1.n",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(n)** From the above tables compare the accuracy",
+            "Task_End_Flag": "**(o)** Compare the confusion matrices on the"
+        },
+        {
+            "Task_NO": "1.o",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(o)** Compare the confusion matrices on the",
+            "Task_End_Flag": "**(p)** Finally, draw the ROC curves for the scoring"
+        },
+        {
+            "Task_NO": "1.p",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(p)** Finally, draw the ROC curves for the scoring",
+            "Task_End_Flag": "## Task 2: Logistic regression"
+        },
+        {
+            "Task_NO": "2.a",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(a)** Implement logistic regression using gradient",
+            "Task_End_Flag": "**(b)** Supplement each iteration of your above"
+        },
+        {
+            "Task_NO": "2.b",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(b)** Supplement each iteration of your above",
+            "Task_End_Flag": "**(c)** Compare your learned weights and bias term"
+        },
+        {
+            "Task_NO": "2.c",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(c)** Compare your learned weights and bias term",
+            "Task_End_Flag": "**(d)** Implement logistic regression using"
+        },
+        {
+            "Task_NO": "2.d",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(d)** Implement logistic regression using",
+            "Task_End_Flag": "**(e)** About your stochastic gradient descent"
+        },
+        {
+            "Task_NO": "2.e",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(e)** About your stochastic gradient descent",
+            "Task_End_Flag": "**(f)** Calculate and report accuracy of the logistic"
+        },
+        {
+            "Task_NO": "2.f",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(f)** Calculate and report accuracy of the logistic",
+            "Task_End_Flag": "**(g)** Since we have generated the data ourselves"
+        },
+        {
+            "Task_NO": "2.g",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(g)** Since we have generated the data ourselves",
+            "Task_End_Flag": "**(h)** Learn a SVM model with RBF kernel with"
+        },
+        {
+            "Task_NO": "2.h",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(h)** Learn a SVM model with RBF kernel with",
+            "Task_End_Flag": "**(i)** Draw the decision boundaries of the logistic"
+        },
+        {
+            "Task_NO": "2.i",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(i)** Draw the decision boundaries of the logistic",
+            "Task_End_Flag": "**(j)** Use the logistic regression model from subtask"
+        },
+		    {
+            "Task_NO": "2.j",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(j)** Use the logistic regression model from subtask",
+            "Task_End_Flag": "**(k)** Apply Platt scaling (also called logistic"
+        },
+		    {
+            "Task_NO": "2.k",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(k)** Apply Platt scaling (also called logistic",
+            "Task_End_Flag": "**(l)** Draw the 0.25-, 0.5- and 0.75-probability lines"
+        },
+        {
+            "Task_NO": "2.l",
+            "Grade": 1,
+            "Task_Begin_Flag": "**(l)** Draw the 0.25-, 0.5- and 0.75-probability lines",
+            "Task_End_Flag": "This was the last task! Please restart and run all before submission!"
+        },
+        {
+         "Task_NO": "Timing",
+         "TASK_NR_FIELDS": "2",
+         "Task_Begin_Flag":"How long did it take you to solve the homework?",
+         "Task_End_Flag":"THANK YOU FOR YOUR EFFORT!"
+        }
+    ]
+}

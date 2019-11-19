@@ -26,7 +26,7 @@ class HomeworkTask: #Class for the Homework Task or Subtask
         
     #Create ipynb files for the tasks
     def create_task_ipynb(self):
-        with open("ipynbTmp.ipynb") as f1:
+        with open("./data/ipynb_tmp.ipynb") as f1:
             lines = f1.readlines()
 
         opt = 1            
