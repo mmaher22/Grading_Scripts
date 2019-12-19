@@ -1,0 +1,130 @@
+{
+ "HW_NO":5,
+ "student_ids":"student_ids.txt", 
+ "HW_Path":"C://Users//papkov//UT//MachineLearning//teaching2019//ML2019_HW5//submissions", 
+ "Graded_NBs_Path": "C://Users//papkov//UT//MachineLearning//Grading_Scripts//output//Grading_HW05",
+ "Rerun": 1,
+ "plag_threshold":1.5,
+ "Tasks": [
+	  {
+	   "Task_NO": "1.a",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"- **(a)** What do the 4 dimensions ((50000, 32, 32, 3)) of X_train represent?",
+	   "Task_End_Flag":"- **(b)** The following code normalizes the training and testing data"
+	  },
+	  {
+	   "Task_NO": "1.b",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"- **(b)** The following code normalizes the training and testing data",
+	   "Task_End_Flag":"Now we are ready to define our model."
+	  },
+	  {
+	   "Task_NO": "1.c",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"- **(c)** Describe shortly what are Conv2D, BatchNormalization, Dropout and Dense?",
+	   "Task_End_Flag":"- **(d)** Why do we set parameter 10 in the last fully connected layer?"
+	  },
+	  {
+	   "Task_NO": "1.d",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"- **(d)** Why do we set parameter 10 in the last fully connected layer?",
+	   "Task_End_Flag":"Now that we have defined the arhitecture, we can create"
+	  },
+	  {
+	   "Task_NO": "1.e",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"- **(e)** How many layers does our network have",
+	   "Task_End_Flag":"Now we train our first model in Keras. Keras follows style"
+	  },
+	  {
+	   "Task_NO": "1.f",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"- **(f)** Please explain the concepts of **batch** and **epoch**.",
+	   "Task_End_Flag":"The following graphs illustrate the behaviour"
+	  },
+	  {
+	   "Task_NO": "1.g",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"- **(g)** Explain what do you see in these figures. Does it makes sense?",
+	   "Task_End_Flag":"Next we will evaluate our trained network on the test and training data."
+	  },
+	  {
+	   "Task_NO": "1.h",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"- **(h)** Based on the training and test accuracy, is the trained network good?",
+	   "Task_End_Flag":"- **(i)** Which class is predicted for the first image in this test set? Is it correctly classified?"
+	  },
+	  {
+	   "Task_NO": "1.i",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"- **(i)** Which class is predicted for the first image in this test set? Is it correctly classified?",
+	   "Task_End_Flag":"### Finding similar images"
+	  },
+	  {
+	   "Task_NO": "1.j",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"- **(j)** Calculate the euclidean distance between all test images. Show 10 closest images for",
+	   "Task_End_Flag":"**Feature extraction:** Model trained for classification can be used in other creative ways"
+	  },
+	  {
+	   "Task_NO": "1.k",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"- **(k)** Calculate euclidean distance matrix between these features and plot the closest images",
+	   "Task_End_Flag":"## Task 2. Ensemble methods"
+	  },
+	  {
+	   "Task_NO": "2.1.a",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"- **(a)** Using sklearn.BaggingClassifier class train a bagging classifier on training data using",
+	   "Task_End_Flag":"- **(b)** Solve the same task as in Exercise 1 but implement bagging yourself"
+	  },
+	  {
+	   "Task_NO": "2.1.b",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"- **(b)** Solve the same task as in Exercise 1 but implement bagging yourself",
+	   "Task_End_Flag":"- **(c)** Draw a figure that shows the change in misclassification rate of bagging"
+	  },
+	  {
+	   "Task_NO": "2.1.c",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"- **(c)** Draw a figure that shows the change in misclassification rate of bagging",
+	   "Task_End_Flag":"### Subtask 2: Random Forest (1 point)"
+	  },
+	  {
+	   "Task_NO": "2.2.a",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"- **(a)** Train a random forest classifier using sklearn.RandomForestClassifier, using 50 trees",
+	   "Task_End_Flag":"- **(b)** Implement a simpler version of the random forest type classifier, where instead"
+	  },
+	  {
+	   "Task_NO": "2.2.b",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"- **(b)** Implement a simpler version of the random forest type classifier, where instead",
+	   "Task_End_Flag":"- **(c)** Try values $f=10$, $f=50$ and $f=300$ and draw a similar figure as in Subtask 1"
+	  },
+	  {
+	   "Task_NO": "2.2.c",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"- **(c)** Try values $f=10$, $f=50$ and $f=300$ and draw a similar figure as in Subtask 1",
+	   "Task_End_Flag":"### Subtask 3: Boosting (1 point)"
+	  },
+	  {
+	   "Task_NO": "2.3.a",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"- **(a)** Train Adaboost classifier on the same dataset doing 50 steps using",
+	   "Task_End_Flag":"- **(b)** Implement Adaboost yourself using DecisionTreeClassifier as the base learner"
+	  },
+	  {
+	   "Task_NO": "2.3.b",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"- **(b)** Implement Adaboost yourself using DecisionTreeClassifier as the base learner",
+	   "Task_End_Flag":"## Bonus Task. Neural network capacity (up to 3 bonus points)"
+	  },
+	  {
+	   "Task_NO": "bonus",
+	   "Grade": 3,
+	   "Task_Begin_Flag":"## Bonus Task. Neural network capacity (up to 3 bonus points)",
+	   "Task_End_Flag":"  ## <font color='red'>This was the last task!"
+	  }
+  ]
+}

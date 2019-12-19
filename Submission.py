@@ -42,22 +42,20 @@ class Submission:
         path_diff = str(os.path.relpath(self.submission_path, start=os.path.dirname(os.path.abspath(task_dir)))).replace('\\', '/')
         #Create Solution Footer Cells
         solution_footer = {"cell_type": "markdown", "metadata": {},
-                       "source": ["# StudentID:" + str(self.id) + "\n",
-                                  "\n",
-                                  "TrialNO:" + str(self.trial) + "\n",
-                                  "\n",
-                                  "Submission:Link to [Notebook]("+ path_diff + ")\n",
-                                  "\n",
-                                  "Grade:" + str(grade) + "\n",
-                                  "\n",
-                                  "Comments:",
-                                  "\n",
-                                  "\n___\n<font size = '20' color='darkgreen'> END BLOCK </font>\n___"]}
+                       "source": [f"# ID: [{self.id}]({path_diff}) \n", "\n",
+                                  f"TrialNO:{self.trial}\n", "\n",
+                                  # "Submission:Link to [Notebook]("+ path_diff + ")\n", "\n",
+                                  f"Grade:{grade}\n", "\n",
+                                  "Comments:", "\n",
+                                  # Separation ruler
+                                  '<hr style="height:3px">'
+                                  # "\n___\n<font size = '20' color='darkgreen'> END BLOCK </font>\n___"
+                                  ]}
         # Flag to mark task needed
-        if task_flag == '':
+        if not task_flag:
             task_flag = 'Task ' + str(task_no)
         # Flag to mark next task
-        if next_task_flag == '':
+        if not next_task_flag:
             next_task_flag = 'Task ' + str(task_no + 1)
         
         def finder(data):

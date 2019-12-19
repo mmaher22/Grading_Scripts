@@ -53,10 +53,13 @@ class HomeworkTask: #Class for the Homework Task or Subtask
         with open(self.task_path, 'r', encoding="utf8") as f:
             data = json.load(f)['cells']
             for cell in data:
-                if len(cell['source']) != 0 and '# StudentID:' in cell['source'][0]:
-                    student_id = cell['source'][0].split(':')[1][:-1] #Parse Student ID
+                # if len(cell['source']) != 0 and '# StudentID:' in cell['source'][0]:
+                #     student_id = cell['source'][0].split(':')[1][:-1] #Parse Student ID
+                if len(cell['source']) != 0 and '# ID:' in cell['source'][0]:
+                    student_id = cell['source'][0].split(']')[0].split('[')[1]  # Parse Student ID
                     comment_flag = False #flag the beginning of the comments
                     for row in cell['source']:
+                        row = row.replace('<hr style="height:3px">', '')
                         if 'Grade:' in row:
                             id_grade[student_id] = float(row.split(':')[1]) #Parse Grade Value
                         elif 'Comments:' in row: 

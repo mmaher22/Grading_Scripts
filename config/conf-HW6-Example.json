@@ -1,32 +1,64 @@
 {
  "HW_NO":6,
- "student_ids":"C://Users//s-moh//2-ML Teaching//Grading_Scripts//student_ids.txt", 
- "HW_Path":"C://Users//s-moh//2-ML Teaching//SampleHWs//MTAT.03.227_6", 
- "Rerun":0,
+ "student_ids":"student_ids.txt", 
+ "HW_Path":"C://Users//papkov//UT//MachineLearning//teaching2019//ML2019_HW6//submissions_part1", 
+ "Graded_NBs_Path": "C://Users//papkov//UT//MachineLearning//Grading_Scripts//output//Grading_HW06",
+ "Rerun": 0,
+ "plag_threshold":2.0,
  "Tasks": [
 	  {
-	   "Task_NO": "1.a-g",
+	   "Task_NO": "1.a",
 	   "Grade": 1,
-	   "Task_Begin_Flag":"Task 1: Evaluation measures",
-	   "Task_End_Flag":"**(h)** Tune the SVM-RBF learner by trying out 20-100 different"
+	   "Task_Begin_Flag":"**(a) Create the HMM model by filling in the following code",
+	   "Task_End_Flag":"**(b) Your next goal is to learn for each throw whether the"
 	  },
 	  {
-	   "Task_NO": "1.h-o",
+	   "Task_NO": "1.b",
 	   "Grade": 1,
-	   "Task_Begin_Flag":"**(h)** Tune the SVM-RBF learner by trying out 20-100 different",
-	   "Task_End_Flag":"**(p)** Finally, draw the ROC curves for the scoring classifiers and add the thresholded"
+	   "Task_Begin_Flag":"**(b) Your next goal is to learn for each throw whether the",
+	   "Task_End_Flag":"**(c) Let us consider the model which for result"
 	  },
 	  {
-	   "Task_NO": "1.p",
+	   "Task_NO": "1.c",
 	   "Grade": 1,
-	   "Task_Begin_Flag":"**(p)** Finally, draw the ROC curves for the scoring classifiers and add the thresholded",
-	   "Task_End_Flag":"Task 2: Logistic regression"
+	   "Task_Begin_Flag":"**(c) Let us consider the model which for result",
+	   "Task_End_Flag":"**(d) Apply Viterbi algorithm to find out what the most likely"
 	  },
 	  {
-	   "Task_NO": "2",
+	   "Task_NO": "1.d",
 	   "Grade": 1,
-	   "Task_Begin_Flag":"Task 2: Logistic regression",
-	   "Task_End_Flag":"How long did it take you to solve the homework"
+	   "Task_Begin_Flag":"**(d) Apply Viterbi algorithm to find out what the most likely",
+	   "Task_End_Flag":"**(e) Calculate and report the accuracy of predictions"
+	  },
+	  {
+	   "Task_NO": "1.e",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"**(e) Calculate and report the accuracy of predictions",
+	   "Task_End_Flag":"**(f) Calculate and report the joint probability "
+	  },
+	  {
+	   "Task_NO": "1.f",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"**(f) Calculate and report the joint probability",
+	   "Task_End_Flag":"**(g) Now calculate and report the joint probability that the loaded dic"
+	  },
+	  {
+	   "Task_NO": "1.g",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"**(g) Now calculate and report the joint probability that the loaded dic",
+	   "Task_End_Flag":"**(h) Finally, calculate and report the joint probability that the loaded"
+	  },
+	  {
+	   "Task_NO": "1.h",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"**(h) Finally, calculate and report the joint probability that the loaded",
+	   "Task_End_Flag":"**(i) Compare the probabilities calculated in (f), (g) and (h)"
+	  },
+	  {
+	   "Task_NO": "1.i",
+	   "Grade": 1,
+	   "Task_Begin_Flag":"**(i) Compare the probabilities calculated in (f), (g) and (h)",
+	   "Task_End_Flag":"  ## <font color='red'>This was the last task! Please restart and run all before submission!</font>"
 	  }
   ]
 }
