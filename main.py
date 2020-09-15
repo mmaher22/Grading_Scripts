@@ -11,6 +11,7 @@ from glob import glob
 from HomeworkTask import HomeworkTask
 from Submission import Submission
 from pathlib import Path
+import argparse
 
 ############ Filtering Submissions to keep most recent one only #################            
 def filter_submissions(path, rerun_flag):
@@ -38,10 +39,15 @@ def filter_submissions(path, rerun_flag):
     return final_submissions
 ############ END: Filtering Submissions to keep most recent one only #################
 
+# Possibility to add a path to configuration JSON as an argument.
+parser = argparse.ArgumentParser()
+parser.add_argument('-conf', type=str, default='conf.json', help="JSON configuration file, that has information about the HW tasks and scores. (default json given)")
+args = parser.parse_args()
+path_conf = args.conf
 
 #### BEGIN: READ CONFIGURATION ########
 try:
-    with open('conf.json', 'r', encoding="utf8") as f:
+    with open(path_conf, 'r', encoding="utf8") as f:
         data = json.load(f)
         
     hw_no = data['HW_NO'] #Homework number
