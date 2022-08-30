@@ -32,7 +32,7 @@ class Submission:
         #os.system(cmd)
         
     # Method to Find specific task solution for that user
-    def find_task(self, task_no, grade, taskFlag = '', nxtTaskFlag = '', taskDir = ''):
+    def find_task(self, task_no, grade, taskFlag = '', nxtTaskFlag = '', taskDir = '', check_empty_answer = True, empty_answer = "Answer goes here."):
         #print('Submission Path = ', self.submission_path)
         with open(self.submission_path, 'r', encoding="utf8") as f:
             cnt_data = json.load(f)
@@ -41,18 +41,7 @@ class Submission:
                        "source": ["# ALERT: Solution After Rerun is different!!! (Old Solution is Next)"]}
         pathDiff = str(os.path.relpath(self.submission_path, start = os.path.dirname(os.path.abspath(taskDir)) )).replace('\\', '/')
         #Create Solution Footer Cells
-        solution_footer = {"cell_type": "markdown", "metadata": {},
-                       "source": ["# StudentID:" + str(self.id) + "\n",
-                                  "\n",
-                                  "TrialNO:" + str(self.trial) + "\n",
-                                  "\n",
-                                  "Submission:Link to [Notebook]("+ pathDiff + ")\n",
-                                  "\n",
-                                  "Grade:" + str(grade) + "\n",
-                                  "\n",
-                                  "Comments:",
-                                  "\n",
-                                  "\n___\n<font size = '20' color='darkgreen'> END BLOCK </font>\n___"]}
+
         # Flag to mark task needed
         if taskFlag == '':
             taskFlag = 'Task ' + str(task_no)
@@ -99,6 +88,34 @@ class Submission:
         if add_alert == True:
             solution.append(alert_cell)
             solution.extend(old_solution)
+        
+        use_empty_grade = False
+        empty_grade = 0
+        
+        if check_empty_answer:
+            for cell in solution:
+                for rowInCell in cell["source"]:
+                    if empty_answer in rowInCell:
+                        use_empty_grade = True
+                        #print("Grade 0 given to:", self.id)
+            
+        new_grade = grade
+        
+        if use_empty_grade:
+            new_grade = 0
+        
+        solution_footer = {"cell_type": "markdown", "metadata": {},
+               "source": ["# StudentID:" + str(self.id) + "\n",
+                          "\n",
+                          "TrialNO:" + str(self.trial) + "\n",
+                          "\n",
+                          "Submission:Link to [Notebook]("+ pathDiff + ")\n",
+                          "\n",
+                          "Grade:" + str(new_grade) + "\n",
+                          "\n",
+                          "Comments:",
+                          "\n",
+                          "\n___\n<font size = '20' color='darkgreen'> END BLOCK </font>\n___"]}
         
         solution.append(solution_footer)
         return solution
