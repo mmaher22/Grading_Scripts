@@ -32,7 +32,7 @@ class Submission:
         #os.system(cmd)
         
     # Method to Find specific task solution for that user
-    def find_task(self, task_no, grade, taskFlag = '', nxtTaskFlag = '', taskDir = '', check_empty_answer = True, empty_answer = "Answer goes here"):
+    def find_task(self, task_no, grade, taskFlag = '', nxtTaskFlag = '', taskDir = '', check_empty_answer = True, empty_answer = "</font>** Answer goes here"):
         #print('Submission Path = ', self.submission_path)
         with open(self.submission_path, 'r', encoding="utf8") as f:
             cnt_data = json.load(f)
